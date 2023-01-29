@@ -1268,7 +1268,7 @@ pub fn main() {
                           <div class="tab-pane active" id="examples-Default-/image/{size}-0-curl">
                             <pre class="prettyprint"><code class="language-bsh">curl -X GET \
  -H "Accept: application/json" \
- "https://api.placeholder.app/image/{size}?text=Hello World&font=CalSansSemiBold"
+ "https://api.placeholder.app/image/{size}?text=Hello World&font=CalSansSemiBold&borderWidth=10&borderColor=FF0000"
 </code></pre>
                           </div>
                           <div class="tab-pane" id="examples-Default-/image/{size}-0-java">
@@ -1288,9 +1288,11 @@ public class DefaultApiExample {
         String size = 400x400; // String | 
         String text = Hello World; // String | 
         String font = CalSansSemiBold; // String | 
+        Integer borderWidth = 10; // Integer | 
+        String borderColor = FF0000; // String | 
 
         try {
-            Object result = apiInstance./image/{size}(size, text, font);
+            Object result = apiInstance./image/{size}(size, text, font, borderWidth, borderColor);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling DefaultApi#/image/{size}");
@@ -1310,9 +1312,11 @@ public class DefaultApiExample {
         String size = 400x400; // String | 
         String text = Hello World; // String | 
         String font = CalSansSemiBold; // String | 
+        Integer borderWidth = 10; // Integer | 
+        String borderColor = FF0000; // String | 
 
         try {
-            Object result = apiInstance./image/{size}(size, text, font);
+            Object result = apiInstance./image/{size}(size, text, font, borderWidth, borderColor);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling DefaultApi#/image/{size}");
@@ -1333,11 +1337,15 @@ DefaultApi *apiInstance = [[DefaultApi alloc] init];
 String *size = 400x400; //  (default to null)
 String *text = Hello World; //  (optional) (default to null)
 String *font = CalSansSemiBold; //  (optional) (default to null)
+Integer *borderWidth = 10; //  (optional) (default to null)
+String *borderColor = FF0000; //  (optional) (default to null)
 
 // Output a placeholder image
 [apiInstance /image/{size}With:size
     text:text
     font:font
+    borderWidth:borderWidth
+    borderColor:borderColor
               completionHandler: ^(Object output, NSError* error) {
     if (output) {
         NSLog(@"%@", output);
@@ -1357,7 +1365,9 @@ var api = new ApiDocumentation.DefaultApi()
 var size = 400x400; // {String} 
 var opts = {
   'text': Hello World, // {String} 
-  'font': CalSansSemiBold // {String} 
+  'font': CalSansSemiBold, // {String} 
+  'borderWidth': 10, // {Integer} 
+  'borderColor': FF0000 // {String} 
 };
 
 var callback = function(error, data, response) {
@@ -1393,10 +1403,12 @@ namespace Example
             var size = 400x400;  // String |  (default to null)
             var text = Hello World;  // String |  (optional)  (default to null)
             var font = CalSansSemiBold;  // String |  (optional)  (default to null)
+            var borderWidth = 10;  // Integer |  (optional)  (default to null)
+            var borderColor = FF0000;  // String |  (optional)  (default to null)
 
             try {
                 // Output a placeholder image
-                Object result = apiInstance./image/{size}(size, text, font);
+                Object result = apiInstance./image/{size}(size, text, font, borderWidth, borderColor);
                 Debug.WriteLine(result);
             } catch (Exception e) {
                 Debug.Print("Exception when calling DefaultApi./image/{size}: " + e.Message );
@@ -1416,9 +1428,11 @@ $api_instance = new OpenAPITools\Client\Api\DefaultApi();
 $size = 400x400; // String | 
 $text = Hello World; // String | 
 $font = CalSansSemiBold; // String | 
+$borderWidth = 10; // Integer | 
+$borderColor = FF0000; // String | 
 
 try {
-    $result = $api_instance->/image/{size}($size, $text, $font);
+    $result = $api_instance->/image/{size}($size, $text, $font, $borderWidth, $borderColor);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->/image/{size}: ', $e->getMessage(), PHP_EOL;
@@ -1436,9 +1450,11 @@ my $api_instance = WWW::OPenAPIClient::DefaultApi->new();
 my $size = 400x400; # String | 
 my $text = Hello World; # String | 
 my $font = CalSansSemiBold; # String | 
+my $borderWidth = 10; # Integer | 
+my $borderColor = FF0000; # String | 
 
 eval {
-    my $result = $api_instance->/image/{size}(size => $size, text => $text, font => $font);
+    my $result = $api_instance->/image/{size}(size => $size, text => $text, font => $font, borderWidth => $borderWidth, borderColor => $borderColor);
     print Dumper($result);
 };
 if ($@) {
@@ -1458,10 +1474,12 @@ api_instance = openapi_client.DefaultApi()
 size = 400x400 # String |  (default to null)
 text = Hello World # String |  (optional) (default to null)
 font = CalSansSemiBold # String |  (optional) (default to null)
+borderWidth = 10 # Integer |  (optional) (default to null)
+borderColor = FF0000 # String |  (optional) (default to null)
 
 try:
     # Output a placeholder image
-    api_response = api_instance./image/{size}(size, text=text, font=font)
+    api_response = api_instance./image/{size}(size, text=text, font=font, borderWidth=borderWidth, borderColor=borderColor)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling DefaultApi->/image/{size}: %s\n" % e)</code></pre>
@@ -1474,9 +1492,11 @@ pub fn main() {
     let size = 400x400; // String
     let text = Hello World; // String
     let font = CalSansSemiBold; // String
+    let borderWidth = 10; // Integer
+    let borderColor = FF0000; // String
 
     let mut context = DefaultApi::Context::default();
-    let result = client./image/{size}(size, text, font, &context).wait();
+    let result = client./image/{size}(size, text, font, borderWidth, borderColor, &context).wait();
 
     println!("{:?}", result);
 }
@@ -1550,6 +1570,40 @@ pub fn main() {
 
 
     <div id="d2e199_/image/{size}_font">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+            </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                                <tr><td style="width:150px;">borderWidth</td>
+<td>
+
+
+    <div id="d2e199_/image/{size}_borderWidth">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    Integer
+                </span>
+
+            </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                                <tr><td style="width:150px;">borderColor</td>
+<td>
+
+
+    <div id="d2e199_/image/{size}_borderColor">
         <div class="json-schema-view">
             <div class="primitive">
                 <span class="type">
@@ -1709,7 +1763,7 @@ pub fn main() {
                           <div class="tab-pane active" id="examples-Default-/image/{size}/{bgColor}-0-curl">
                             <pre class="prettyprint"><code class="language-bsh">curl -X GET \
  -H "Accept: application/json" \
- "https://api.placeholder.app/image/{size}/{bgColor}?text=Hello World&font=Sans-Serif"
+ "https://api.placeholder.app/image/{size}/{bgColor}?text=Hello World&font=Sans-Serif&borderWidth=10&borderColor=FF0000"
 </code></pre>
                           </div>
                           <div class="tab-pane" id="examples-Default-/image/{size}/{bgColor}-0-java">
@@ -1730,9 +1784,11 @@ public class DefaultApiExample {
         String bgColor = 3B3B3B; // String | 
         String text = Hello World; // String | 
         String font = Sans-Serif; // String | 
+        Integer borderWidth = 10; // Integer | 
+        String borderColor = FF0000; // String | 
 
         try {
-            Object result = apiInstance./image/{size}/{bgColor}(size, bgColor, text, font);
+            Object result = apiInstance./image/{size}/{bgColor}(size, bgColor, text, font, borderWidth, borderColor);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling DefaultApi#/image/{size}/{bgColor}");
@@ -1753,9 +1809,11 @@ public class DefaultApiExample {
         String bgColor = 3B3B3B; // String | 
         String text = Hello World; // String | 
         String font = Sans-Serif; // String | 
+        Integer borderWidth = 10; // Integer | 
+        String borderColor = FF0000; // String | 
 
         try {
-            Object result = apiInstance./image/{size}/{bgColor}(size, bgColor, text, font);
+            Object result = apiInstance./image/{size}/{bgColor}(size, bgColor, text, font, borderWidth, borderColor);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling DefaultApi#/image/{size}/{bgColor}");
@@ -1777,12 +1835,16 @@ String *size = 400x400; //  (default to null)
 String *bgColor = 3B3B3B; //  (default to null)
 String *text = Hello World; //  (optional) (default to null)
 String *font = Sans-Serif; //  (optional) (default to null)
+Integer *borderWidth = 10; //  (optional) (default to null)
+String *borderColor = FF0000; //  (optional) (default to null)
 
 // Output a placeholder image
 [apiInstance /image/{size}/{bgColor}With:size
     bgColor:bgColor
     text:text
     font:font
+    borderWidth:borderWidth
+    borderColor:borderColor
               completionHandler: ^(Object output, NSError* error) {
     if (output) {
         NSLog(@"%@", output);
@@ -1803,7 +1865,9 @@ var size = 400x400; // {String}
 var bgColor = 3B3B3B; // {String} 
 var opts = {
   'text': Hello World, // {String} 
-  'font': Sans-Serif // {String} 
+  'font': Sans-Serif, // {String} 
+  'borderWidth': 10, // {Integer} 
+  'borderColor': FF0000 // {String} 
 };
 
 var callback = function(error, data, response) {
@@ -1840,10 +1904,12 @@ namespace Example
             var bgColor = 3B3B3B;  // String |  (default to null)
             var text = Hello World;  // String |  (optional)  (default to null)
             var font = Sans-Serif;  // String |  (optional)  (default to null)
+            var borderWidth = 10;  // Integer |  (optional)  (default to null)
+            var borderColor = FF0000;  // String |  (optional)  (default to null)
 
             try {
                 // Output a placeholder image
-                Object result = apiInstance./image/{size}/{bgColor}(size, bgColor, text, font);
+                Object result = apiInstance./image/{size}/{bgColor}(size, bgColor, text, font, borderWidth, borderColor);
                 Debug.WriteLine(result);
             } catch (Exception e) {
                 Debug.Print("Exception when calling DefaultApi./image/{size}/{bgColor}: " + e.Message );
@@ -1864,9 +1930,11 @@ $size = 400x400; // String |
 $bgColor = 3B3B3B; // String | 
 $text = Hello World; // String | 
 $font = Sans-Serif; // String | 
+$borderWidth = 10; // Integer | 
+$borderColor = FF0000; // String | 
 
 try {
-    $result = $api_instance->/image/{size}/{bgColor}($size, $bgColor, $text, $font);
+    $result = $api_instance->/image/{size}/{bgColor}($size, $bgColor, $text, $font, $borderWidth, $borderColor);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->/image/{size}/{bgColor}: ', $e->getMessage(), PHP_EOL;
@@ -1885,9 +1953,11 @@ my $size = 400x400; # String |
 my $bgColor = 3B3B3B; # String | 
 my $text = Hello World; # String | 
 my $font = Sans-Serif; # String | 
+my $borderWidth = 10; # Integer | 
+my $borderColor = FF0000; # String | 
 
 eval {
-    my $result = $api_instance->/image/{size}/{bgColor}(size => $size, bgColor => $bgColor, text => $text, font => $font);
+    my $result = $api_instance->/image/{size}/{bgColor}(size => $size, bgColor => $bgColor, text => $text, font => $font, borderWidth => $borderWidth, borderColor => $borderColor);
     print Dumper($result);
 };
 if ($@) {
@@ -1908,10 +1978,12 @@ size = 400x400 # String |  (default to null)
 bgColor = 3B3B3B # String |  (default to null)
 text = Hello World # String |  (optional) (default to null)
 font = Sans-Serif # String |  (optional) (default to null)
+borderWidth = 10 # Integer |  (optional) (default to null)
+borderColor = FF0000 # String |  (optional) (default to null)
 
 try:
     # Output a placeholder image
-    api_response = api_instance./image/{size}/{bg_color}(size, bgColor, text=text, font=font)
+    api_response = api_instance./image/{size}/{bg_color}(size, bgColor, text=text, font=font, borderWidth=borderWidth, borderColor=borderColor)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling DefaultApi->/image/{size}/{bgColor}: %s\n" % e)</code></pre>
@@ -1925,9 +1997,11 @@ pub fn main() {
     let bgColor = 3B3B3B; // String
     let text = Hello World; // String
     let font = Sans-Serif; // String
+    let borderWidth = 10; // Integer
+    let borderColor = FF0000; // String
 
     let mut context = DefaultApi::Context::default();
-    let result = client./image/{size}/{bgColor}(size, bgColor, text, font, &context).wait();
+    let result = client./image/{size}/{bgColor}(size, bgColor, text, font, borderWidth, borderColor, &context).wait();
 
     println!("{:?}", result);
 }
@@ -2021,6 +2095,40 @@ pub fn main() {
 
 
     <div id="d2e199_/image/{size}/{bgColor}_font">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+            </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                                <tr><td style="width:150px;">borderWidth</td>
+<td>
+
+
+    <div id="d2e199_/image/{size}/{bgColor}_borderWidth">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    Integer
+                </span>
+
+            </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                                <tr><td style="width:150px;">borderColor</td>
+<td>
+
+
+    <div id="d2e199_/image/{size}/{bgColor}_borderColor">
         <div class="json-schema-view">
             <div class="primitive">
                 <span class="type">
@@ -2180,7 +2288,7 @@ pub fn main() {
                           <div class="tab-pane active" id="examples-Default-/image/{size}/{bgColor}/{txtColor}-0-curl">
                             <pre class="prettyprint"><code class="language-bsh">curl -X GET \
  -H "Accept: application/json" \
- "https://api.placeholder.app/image/{size}/{bgColor}/{txtColor}?text=Hello World&font=Sans-Serif"
+ "https://api.placeholder.app/image/{size}/{bgColor}/{txtColor}?text=Hello World&font=Sans-Serif&borderWidth=10&borderColor=FF0000"
 </code></pre>
                           </div>
                           <div class="tab-pane" id="examples-Default-/image/{size}/{bgColor}/{txtColor}-0-java">
@@ -2202,9 +2310,11 @@ public class DefaultApiExample {
         String txtColor = FFFFFF; // String | 
         String text = Hello World; // String | 
         String font = Sans-Serif; // String | 
+        Integer borderWidth = 10; // Integer | 
+        String borderColor = FF0000; // String | 
 
         try {
-            Object result = apiInstance./image/{size}/{bgColor}/{txtColor}(size, bgColor, txtColor, text, font);
+            Object result = apiInstance./image/{size}/{bgColor}/{txtColor}(size, bgColor, txtColor, text, font, borderWidth, borderColor);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling DefaultApi#/image/{size}/{bgColor}/{txtColor}");
@@ -2226,9 +2336,11 @@ public class DefaultApiExample {
         String txtColor = FFFFFF; // String | 
         String text = Hello World; // String | 
         String font = Sans-Serif; // String | 
+        Integer borderWidth = 10; // Integer | 
+        String borderColor = FF0000; // String | 
 
         try {
-            Object result = apiInstance./image/{size}/{bgColor}/{txtColor}(size, bgColor, txtColor, text, font);
+            Object result = apiInstance./image/{size}/{bgColor}/{txtColor}(size, bgColor, txtColor, text, font, borderWidth, borderColor);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling DefaultApi#/image/{size}/{bgColor}/{txtColor}");
@@ -2251,6 +2363,8 @@ String *bgColor = 3B3B3B; //  (default to null)
 String *txtColor = FFFFFF; //  (default to null)
 String *text = Hello World; //  (optional) (default to null)
 String *font = Sans-Serif; //  (optional) (default to null)
+Integer *borderWidth = 10; //  (optional) (default to null)
+String *borderColor = FF0000; //  (optional) (default to null)
 
 // Output a placeholder image
 [apiInstance /image/{size}/{bgColor}/{txtColor}With:size
@@ -2258,6 +2372,8 @@ String *font = Sans-Serif; //  (optional) (default to null)
     txtColor:txtColor
     text:text
     font:font
+    borderWidth:borderWidth
+    borderColor:borderColor
               completionHandler: ^(Object output, NSError* error) {
     if (output) {
         NSLog(@"%@", output);
@@ -2279,7 +2395,9 @@ var bgColor = 3B3B3B; // {String}
 var txtColor = FFFFFF; // {String} 
 var opts = {
   'text': Hello World, // {String} 
-  'font': Sans-Serif // {String} 
+  'font': Sans-Serif, // {String} 
+  'borderWidth': 10, // {Integer} 
+  'borderColor': FF0000 // {String} 
 };
 
 var callback = function(error, data, response) {
@@ -2317,10 +2435,12 @@ namespace Example
             var txtColor = FFFFFF;  // String |  (default to null)
             var text = Hello World;  // String |  (optional)  (default to null)
             var font = Sans-Serif;  // String |  (optional)  (default to null)
+            var borderWidth = 10;  // Integer |  (optional)  (default to null)
+            var borderColor = FF0000;  // String |  (optional)  (default to null)
 
             try {
                 // Output a placeholder image
-                Object result = apiInstance./image/{size}/{bgColor}/{txtColor}(size, bgColor, txtColor, text, font);
+                Object result = apiInstance./image/{size}/{bgColor}/{txtColor}(size, bgColor, txtColor, text, font, borderWidth, borderColor);
                 Debug.WriteLine(result);
             } catch (Exception e) {
                 Debug.Print("Exception when calling DefaultApi./image/{size}/{bgColor}/{txtColor}: " + e.Message );
@@ -2342,9 +2462,11 @@ $bgColor = 3B3B3B; // String |
 $txtColor = FFFFFF; // String | 
 $text = Hello World; // String | 
 $font = Sans-Serif; // String | 
+$borderWidth = 10; // Integer | 
+$borderColor = FF0000; // String | 
 
 try {
-    $result = $api_instance->/image/{size}/{bgColor}/{txtColor}($size, $bgColor, $txtColor, $text, $font);
+    $result = $api_instance->/image/{size}/{bgColor}/{txtColor}($size, $bgColor, $txtColor, $text, $font, $borderWidth, $borderColor);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->/image/{size}/{bgColor}/{txtColor}: ', $e->getMessage(), PHP_EOL;
@@ -2364,9 +2486,11 @@ my $bgColor = 3B3B3B; # String |
 my $txtColor = FFFFFF; # String | 
 my $text = Hello World; # String | 
 my $font = Sans-Serif; # String | 
+my $borderWidth = 10; # Integer | 
+my $borderColor = FF0000; # String | 
 
 eval {
-    my $result = $api_instance->/image/{size}/{bgColor}/{txtColor}(size => $size, bgColor => $bgColor, txtColor => $txtColor, text => $text, font => $font);
+    my $result = $api_instance->/image/{size}/{bgColor}/{txtColor}(size => $size, bgColor => $bgColor, txtColor => $txtColor, text => $text, font => $font, borderWidth => $borderWidth, borderColor => $borderColor);
     print Dumper($result);
 };
 if ($@) {
@@ -2388,10 +2512,12 @@ bgColor = 3B3B3B # String |  (default to null)
 txtColor = FFFFFF # String |  (default to null)
 text = Hello World # String |  (optional) (default to null)
 font = Sans-Serif # String |  (optional) (default to null)
+borderWidth = 10 # Integer |  (optional) (default to null)
+borderColor = FF0000 # String |  (optional) (default to null)
 
 try:
     # Output a placeholder image
-    api_response = api_instance./image/{size}/{bg_color}/{txt_color}(size, bgColor, txtColor, text=text, font=font)
+    api_response = api_instance./image/{size}/{bg_color}/{txt_color}(size, bgColor, txtColor, text=text, font=font, borderWidth=borderWidth, borderColor=borderColor)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling DefaultApi->/image/{size}/{bgColor}/{txtColor}: %s\n" % e)</code></pre>
@@ -2406,9 +2532,11 @@ pub fn main() {
     let txtColor = FFFFFF; // String
     let text = Hello World; // String
     let font = Sans-Serif; // String
+    let borderWidth = 10; // Integer
+    let borderColor = FF0000; // String
 
     let mut context = DefaultApi::Context::default();
-    let result = client./image/{size}/{bgColor}/{txtColor}(size, bgColor, txtColor, text, font, &context).wait();
+    let result = client./image/{size}/{bgColor}/{txtColor}(size, bgColor, txtColor, text, font, borderWidth, borderColor, &context).wait();
 
     println!("{:?}", result);
 }
@@ -2522,6 +2650,40 @@ pub fn main() {
 
 
     <div id="d2e199_/image/{size}/{bgColor}/{txtColor}_font">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+            </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                                <tr><td style="width:150px;">borderWidth</td>
+<td>
+
+
+    <div id="d2e199_/image/{size}/{bgColor}/{txtColor}_borderWidth">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    Integer
+                </span>
+
+            </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                                <tr><td style="width:150px;">borderColor</td>
+<td>
+
+
+    <div id="d2e199_/image/{size}/{bgColor}/{txtColor}_borderColor">
         <div class="json-schema-view">
             <div class="primitive">
                 <span class="type">
